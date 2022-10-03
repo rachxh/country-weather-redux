@@ -26,10 +26,6 @@ const CountrySingle = () => {
   const countryName = countryInfo.name.common;
   const lat = countryInfo.latlng[0];
   const lon = countryInfo.latlng[1];
-  // const linkStyle = {
-  //   textDecoration: "none",
-  //   color: "white"
-  // }
 
   const { countries } = location.state;
   const [country, setCountry] = useState(location.state.country);
