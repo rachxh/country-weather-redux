@@ -1,0 +1,24 @@
+.country_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  width: 80%;
+  margin: 2rem auto;
+  align-items: center;
+  justify-content: center;
+  grid-auto-flow: dense;
+}
+.page_title {
+  margin: 2rem auto;
+  text-align: center;
+  font-family: "Metal", cursive;
+  color: rgb(80, 135, 237); 
+}
+
+/* for ipad mini */
+@media screen and (width:768px) {
+  .country_list {
+  padding: 0 4.5rem;
+}
+
+}

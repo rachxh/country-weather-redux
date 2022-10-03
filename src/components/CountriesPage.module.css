@@ -1,0 +1,90 @@
+.country_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  width: 80%;
+  margin: 2rem auto;
+  align-items: center;
+  justify-content: center;
+  grid-auto-flow: dense;
+}
+
+.country_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sort_container {
+  width: 80%;
+  margin: 2rem auto;
+}
+.sort {
+  padding: 0.5rem 1.5rem;
+  background-color: white;
+  border-radius: 25px;
+  border: 2px solid cornflowerblue;
+}
+
+/* for ipad mini */
+ @media screen and (width:768px) {
+  .country_list {
+  padding: 0 4.5rem;
+}
+.sort_container {
+  width: 60%;
+  margin: 2rem auto;
+}
+}
+
+
+
+.search_form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+  }
+  .search_bar {
+    width: 50%;
+    padding: 12px;
+    border: solid 2px cornflowerblue;
+    border-radius: 25px;
+    text-indent: 0.5rem;
+  }
+input{
+  border: none;
+}
+/* take the highligh off when typing in css
+/* textarea:focus, input:focus{
+  outline: none;
+} */
+
+
+/* 769px — 1024px: Small screens, laptops */
+@media screen and (max-width: 1024px) {
+  .search_bar {
+   width:70%;
+  }
+}
+/* for ipad mini */
+@media screen and (width: 768px) {
+  .search_bar {
+   width:90%;
+  }
+  .search_form {
+    padding: 0;
+  }
+}
+/* 481px — 768px: iPads, Tablets */
+@media screen and (max-width: 767px) {
+  .search_bar {
+   width:100%;
+  }
+}
+/* 320px — 480px: Mobile devices */
+@media screen and (max-width: 480px) {
+  .search_bar {
+   width:100%;
+  }
+}

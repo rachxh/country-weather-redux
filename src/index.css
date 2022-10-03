@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Metal&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+main {
+  min-height: 85vh;
+}
+.home_title {
+  margin: 3rem auto;
+  text-align: center;
+  color: rgb(80, 135, 237);
+  font-family: "Metal", cursive;
+  padding: 0 1rem;
+}
+.home_image_container {
+  margin: 0 auto;
+  width: 65%;
+}
+footer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 5vh;
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+
+
+/* 769px — 1024px: Small screens, laptops */
+@media screen and (max-width: 1024px) {
+  .home_img {
+    width: 550px;
+    height: auto;
+  }
+  .home_image_container {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+/* 481px — 768px: iPads, Tablets */
+@media screen and (max-width: 767px) {
+  .home_img {
+    width: 450px;
+    height: auto;
+  }
+  .home_image_container {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+/* 320px — 480px: Mobile devices */
+@media screen and (max-width: 480px) {
+  .home_img {
+    width: 300px;
+    height: auto;
+  }
+  .home_image_container {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+/* 280px-350px: small Mobile devices */
+@media screen and (max-width: 350px) {
+  .home_img {
+    width: 150px;
+    height: auto;
+  }
+  .home_image_container {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
