@@ -1,28 +1,28 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
 import { useSelector } from 'react-redux';
 import CountryCard from './CountryCard';
+import style from "./Favorites.module.css"
 
 const Favorites = () => {
   const favsList = useSelector(state => state.favorites.favoritesList);
   const searchInput = useSelector(state => state.countries.search);
   return (
-    <Grid
-      container
-      spacing={{ xs: 2, md: 4 }}
-      columns={{ xs: 2, sm: 8, md: 12 }}
-    >
+    <>
+    <h1 className={style.page_title}>Countries I have been to...📍</h1>
+ 
+       <div className={style.country_list}>
       {favsList
         .filter(c =>
           c.name.common.toLowerCase().includes(searchInput.toLowerCase())
         )
         .map(country => (
-          <Grid item xs={2} sm={4} md={4} key={country.name.common}>
-            <CountryCard country={country} />
-          </Grid>
+            <CountryCard  key={country.name.common} country={country} />
         ))}
-    </Grid>
+        </div>
+ 
+    </>
   );
 };
+
 
 export default Favorites;

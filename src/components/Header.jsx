@@ -102,7 +102,7 @@ const Header = () => {
                 <Typography textAlign="center">
                   <Link to="/favorites" style={mobileLinkStyle}>
                     {" "}
-                    Bookmarks{" "}
+                    Favorites{" "}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -132,7 +132,7 @@ const Header = () => {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               <Link to="/favorites" style={linkStyle}>
-                BOOKMARKS
+                FAVORITES
               </Link>
             </Button>
           </Box>

@@ -4,9 +4,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
-// import Checkbox from "@mui/material/Checkbox";
-// import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-// import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
@@ -24,19 +21,12 @@ import {
 
 
 const CountryCard = ({ country}) => {
-  // const { name, languages, flags, population } = country;
   const favsList = useSelector(state => state.favorites.favoritesList);
-  // const countries = useSelector(state => state.countries.countriesList);
   const { name, languages, flags, population } = country;
   const dispatch = useDispatch();
 
-  // const updateBookmark = (event) => {
-  //   onClickBookmark(name.common);
-  // };
-
   const addToFavs = country => {
     dispatch(addToFavorites(country));
-    // Set localStorage to favsList and new country
     localStorage.setItem('favorites', JSON.stringify([...favsList, country]));
   };
 
@@ -54,7 +44,6 @@ const CountryCard = ({ country}) => {
 
     return arr.length > 0;
   };
-
 
   return (
     <>
@@ -127,26 +116,15 @@ const CountryCard = ({ country}) => {
               See More
             </Button>
           </Link>
-          {/* {showHeart && (
-            <Checkbox
-              checked={isBookmarked}
-              aria-label="add to Bookmarks"
-              onChange={updateBookmark}
-              icon={<BookmarkBorderIcon />}
-              checkedIcon={<BookmarkIcon />}
-            />
-          )} */}
           {checkIfInFavs() ? (
         <IconButton
           onClick={() => removeFromFavs(country)}
-          sx={{ position: 'absolute', bottom: '0', zindex: '4' }}
         >
           <FavoriteIcon />
         </IconButton>
       ) : (
         <IconButton
           onClick={() => addToFavs(country)}
-          sx={{ position: 'absolute', bottom: '0', zindex: '3' }}
         >
           <FavoriteBorderIcon />
         </IconButton>
