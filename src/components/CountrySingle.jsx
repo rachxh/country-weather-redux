@@ -1,5 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,7 +11,6 @@ import { FcGallery } from "react-icons/fc";
 import { FcLandscape } from "react-icons/fc";
 import { FcGlobe } from "react-icons/fc";
 import axios from "axios";
-import { useState, useEffect } from "react";
 import styles from "./CountrySingle.module.css";
 import { Link } from 'react-router-dom';
 import style from "./CountrySingle.module.css"
@@ -25,10 +26,18 @@ const CountrySingle = () => {
   const countryName = countryInfo.name.common;
   const lat = countryInfo.latlng[0];
   const lon = countryInfo.latlng[1];
-  const linkStyle = {
-    textDecoration: "none",
-    color: "white"
-  }
+  // const linkStyle = {
+  //   textDecoration: "none",
+  //   color: "white"
+  // }
+
+  const { countries } = location.state;
+  const [country, setCountry] = useState(location.state.country);
+
+  const pageNavigate = useNavigate();
+  const goBack = () => {
+    pageNavigate(-1);
+  };
 
   useEffect(() => {
     axios
@@ -57,7 +66,14 @@ const CountrySingle = () => {
     )
 
   }
+ 
   const hasBorder = countryInfo.borders
+  const handleCountryChange = (borderCountryClicked) => {
+    const borderCountry = countries.find(
+      (country) => country.cca3.toLowerCase() === borderCountryClicked
+    );
+    setCountry(borderCountry);
+  };
 
   return (
     <>
@@ -103,11 +119,26 @@ const CountrySingle = () => {
             <span>{hasBorder ? countryInfo.borders.map((border) => (
               <li key={border}>{border}</li>
             ))
-              : 'No border data'}</span>
+              : 'No borders, it is an island!'}</span>
+              <div className="country-buttons">
+              {country?.borders?.map((border, index) => {
+                return (
+                  <Link
+                    key={index}
+                    to={`/countries/${border}`}
+                    onClick={() => handleCountryChange(border.toLowerCase())}
+                    className="border-country-btn"
+                    state={{ country: country, countries: countries }}
+                  >
+                    {border}
+                  </Link>
+                );
+              })}
+            </div>
           </CardActions>
           <CardActions>
-            <button className={style.btn}>
-              <Link to="/countries" style={linkStyle}>Go back</Link>
+            <button className={style.btn} onClick={goBack} >
+              Go back
             </button>
           </CardActions>
         </Card>

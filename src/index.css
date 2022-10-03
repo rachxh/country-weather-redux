@@ -24,6 +24,23 @@ main {
   margin: 0 auto;
   width: 65%;
 }
+
+.toTop_btn {
+  position: fixed;
+  bottom: 5rem;
+  right: 3rem;
+  border-radius: 50%;
+  background:  cornflowerblue;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: white;
+  border: none;
+}
+
+.toTop_btn:hover {
+  background:  rgb(89, 9, 236);
+}
+
 footer {
   text-align: center;
   display: flex;

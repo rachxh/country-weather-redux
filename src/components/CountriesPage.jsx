@@ -5,6 +5,7 @@ import { initializeCountries, search } from '../features/countries/countriesSlic
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import style from "./CountriesPage.module.css"
+import ScrollToTop from './backToTop';
 
 const CountriesPage = () => {
     const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const CountriesPage = () => {
     }
     return (
         <main>
-            <div>
+            <div className={style.sort_container}>
                 <form className={style.search_form}>
                     <input type="search" className={style.search_bar}
                         placeholder="Search for Countries"
@@ -46,9 +47,8 @@ const CountriesPage = () => {
                     .map(country => (
                             <CountryCard  key={country.name.common} country={country} countries={countriesList} />
                     ))}
-
-
             </div>
+            <ScrollToTop/>
         </main>
     );
 };
